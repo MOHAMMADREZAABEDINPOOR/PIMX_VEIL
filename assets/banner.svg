@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="vlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080314" />
+      <stop offset="50%" stop-color="#14062a" />
+      <stop offset="100%" stop-color="#05010e" />
+    </linearGradient>
+    <linearGradient id="vlNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7">
+        <animate attributeName="stop-color" values="#a855f7;#ec4899;#06b6d4;#a855f7" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#ec4899">
+        <animate attributeName="stop-color" values="#ec4899;#06b6d4;#a855f7;#ec4899" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#06b6d4">
+        <animate attributeName="stop-color" values="#06b6d4;#a855f7;#ec4899;#06b6d4" dur="7s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    <linearGradient id="vlGrid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.35" />
+    </linearGradient>
+    <filter id="vlGlow">
+      <feGaussianBlur stdDeviation="5" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes vlFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    .floating-prism { animation: vlFloat 5.8s ease-in-out infinite; }
+  </style>
+
+  <rect width="1200" height="360" fill="url(#vlBg)" />
+
+  <!-- 3D Perspective Ground Grid -->
+  <g opacity="0.65">
+    <line x1="0" y1="260" x2="1200" y2="260" stroke="#a855f7" stroke-opacity="0.25" stroke-width="1" />
+    <line x1="600" y1="260" x2="0" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="200" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="400" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="600" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="800" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="1000" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="1200" y2="360" stroke="url(#vlGrid)" stroke-width="1.5" />
+    <line x1="0" y1="290" x2="1200" y2="290" stroke="#a855f7" stroke-opacity="0.2" stroke-width="1" />
+    <line x1="0" y1="330" x2="1200" y2="330" stroke="#ec4899" stroke-opacity="0.3" stroke-width="1.5" />
+  </g>
+
+  <!-- Ambient Light -->
+  <circle cx="200" cy="110" r="140" fill="#a855f7" opacity="0.08" filter="url(#vlGlow)" />
+  <circle cx="960" cy="170" r="160" fill="#ec4899" opacity="0.12" filter="url(#vlGlow)" />
+
+  <!-- 3D Steganography Carrier Prism & Decomposed Pixel Layers -->
+  <g transform="translate(940, 180)" class="floating-prism">
+    <circle cx="0" cy="0" r="110" fill="none" stroke="url(#vlNeon)" stroke-width="2" stroke-dasharray="8 6" opacity="0.75">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="22s" repeatCount="indefinite" />
+    </circle>
+    <!-- Pixel Matrix Layer 1 (Red Channel) -->
+    <polygon points="-65,-40 0,-70 65,-40 0,-10" fill="#ef4444" fill-opacity="0.25" stroke="#ef4444" stroke-width="1.5" />
+    <!-- Pixel Matrix Layer 2 (Green Channel) -->
+    <polygon points="-65,-15 0,-45 65,-15 0,15" fill="#10b981" fill-opacity="0.25" stroke="#10b981" stroke-width="1.5" />
+    <!-- Pixel Matrix Layer 3 (Blue Channel + Concealed LSB) -->
+    <polygon points="-65,10 0,-20 65,10 0,40" fill="#3b82f6" fill-opacity="0.35" stroke="#38bdf8" stroke-width="2" filter="url(#vlGlow)" />
+
+    <!-- Concealed Payload Core Orb -->
+    <circle cx="0" cy="-10" r="12" fill="#a855f7" filter="url(#vlGlow)">
+      <animate attributeName="r" values="10;15;10" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="fill" values="#a855f7;#ec4899;#06b6d4;#a855f7" dur="7s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Floating Badges -->
+    <g transform="translate(-120, -50)">
+      <rect x="0" y="0" width="85" height="22" rx="6" fill="#110524" stroke="#a855f7" stroke-width="1" />
+      <text x="42" y="15" font-family="'Fira Code', monospace" font-size="10" font-weight="bold" fill="#c084fc" text-anchor="middle">LSB SPATIAL</text>
+    </g>
+    <g transform="translate(65, 30)">
+      <rect x="0" y="0" width="85" height="22" rx="6" fill="#110524" stroke="#ec4899" stroke-width="1" />
+      <text x="42" y="15" font-family="'Fira Code', monospace" font-size="10" font-weight="bold" fill="#f472b6" text-anchor="middle">AES-GCM WRAP</text>
+    </g>
+    <g transform="translate(-40, 70)">
+      <rect x="0" y="0" width="85" height="22" rx="6" fill="#110524" stroke="#06b6d4" stroke-width="1" />
+      <text x="42" y="15" font-family="'Fira Code', monospace" font-size="10" font-weight="bold" fill="#22d3ee" text-anchor="middle">ZERO VISIBLE</text>
+    </g>
+  </g>
+
+  <!-- Left Typography -->
+  <g transform="translate(80, 140)">
+    <g transform="translate(0, -35)">
+      <rect x="0" y="-14" width="280" height="24" rx="12" fill="#a855f7" fill-opacity="0.12" stroke="#a855f7" stroke-width="1" />
+      <circle cx="12" cy="-2" r="4" fill="#a855f7" />
+      <text x="26" y="2" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#c084fc" letter-spacing="2">STEGANOGRAPHY // PAYLOAD CONCEALMENT</text>
+    </g>
+
+    <text x="0" y="32" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif" font-size="52" font-weight="900" fill="url(#vlNeon)" filter="url(#vlGlow)" letter-spacing="3">
+      PIMX_VEIL
+    </text>
+
+    <text x="0" y="68" font-family="'Fira Code', monospace" font-size="16" font-weight="600" fill="#e2e8f0" letter-spacing="1">
+      ⚡ Military-Grade Image Steganography, AES-256-GCM &amp; Hybrid File Concealment
+    </text>
+
+    <g transform="translate(0, 92)">
+      <rect x="0" y="0" width="165" height="26" rx="6" fill="#120626" stroke="#a855f7" stroke-width="1" />
+      <text x="82" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#c084fc" text-anchor="middle">🤫 LSB Steganography</text>
+
+      <rect x="175" y="0" width="160" height="26" rx="6" fill="#120626" stroke="#ec4899" stroke-width="1" />
+      <text x="255" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#f472b6" text-anchor="middle">🔒 AES-256 Pre-Cipher</text>
+
+      <rect x="345" y="0" width="150" height="26" rx="6" fill="#120626" stroke="#06b6d4" stroke-width="1" />
+      <text x="420" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#22d3ee" text-anchor="middle">🖼️ Multi-Carrier</text>
+
+      <rect x="505" y="0" width="150" height="26" rx="6" fill="#120626" stroke="#34d399" stroke-width="1" />
+      <text x="580" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#34d399" text-anchor="middle">🌐 10 Languages</text>
+    </g>
+  </g>
+
+  <line x1="0" y1="358" x2="1200" y2="358" stroke="url(#vlNeon)" stroke-width="3" filter="url(#vlGlow)" />
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "PIMXVEIL",
+  "description": "Military-Grade Universal File Steganography & Encryption Web Suite. Securely hide and encrypt files inside carrier files completely in-browser with zero-knowledge deniability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
