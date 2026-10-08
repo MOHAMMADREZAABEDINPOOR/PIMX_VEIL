@@ -8,6 +8,12 @@
 
 # 🫥 PIMX VEIL
 
+<!-- pimx-live-site:start -->
+## Live website
+
+**[Open PIMX_VEIL ↗](https://pimxveil.pages.dev/)**
+<!-- pimx-live-site:end -->
+
 A browser workbench that encrypts a payload and appends it, together with metadata, to a carrier file. Extraction recovers the encrypted envelope for password-based decryption.
 
 [GitHub](https://github.com/MOHAMMADREZAABEDINPOOR/PIMX_VEIL) · [PIMX / Profile](https://github.com/MOHAMMADREZAABEDINPOOR) · [Static artwork](assets/readme/hero.png)
