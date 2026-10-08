@@ -10,6 +10,12 @@
 
 # 🫥 PIMX VEIL
 
+<!-- pimx-live-site:start -->
+## وب‌سایت آنلاین
+
+**[مشاهدهٔ PIMX_VEIL ↗](https://pimxveil.pages.dev/)**
+<!-- pimx-live-site:end -->
+
 میزکاری در مرورگر که داده را رمز می‌کند و همراه فراداده به انتهای فایل حامل می‌افزاید. استخراج، بسته رمز‌شده را برای بازیابی با گذرواژه برمی‌گرداند.
 
 [GitHub](https://github.com/MOHAMMADREZAABEDINPOOR/PIMX_VEIL) · [PIMX / Profile](https://github.com/MOHAMMADREZAABEDINPOOR) · [بنر ثابت](assets/readme/hero.png)
